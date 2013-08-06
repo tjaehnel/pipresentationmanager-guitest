@@ -39,7 +39,7 @@ class ShowItemsTests extends TestBase {
 		at SlideEditor
 	}
 	
-	def "Add and save new slide"() {
+	def "Add new slide"() {
 		when:
 		addSlideBtn.click()
 		waitFor { items.size() == 4 }
@@ -48,7 +48,6 @@ class ShowItemsTests extends TestBase {
 		titleOfItem(3) == "New Slide"
 		
 		when:
-		saveShow()
 		to ShowSelection
 		selectShowById("show2")
 		waitFor { at ShowItemList }
@@ -57,7 +56,7 @@ class ShowItemsTests extends TestBase {
 		titleOfItem(3) == "New Slide"
 	}
 	
-	def "Add and save new video"() {
+	def "Add new video"() {
 		when:
 		addVideoBtn.click()
 		waitFor { items.size() == 4 }
@@ -67,7 +66,6 @@ class ShowItemsTests extends TestBase {
 		imageOfItem(3).contains("Video_sidebar.png")
 		
 		when:
-		saveShow()
 		to ShowSelection
 		selectShowById("show2")
 		waitFor { at ShowItemList }
@@ -77,7 +75,7 @@ class ShowItemsTests extends TestBase {
 		imageOfItem(3).contains("Video_sidebar.png")
 	}
 	
-	def "Reorder and save Items"() {
+	def "Reorder Items"() {
 		when:
 		Thread.sleep(1000);
 		interact {
@@ -104,7 +102,6 @@ class ShowItemsTests extends TestBase {
 		}
 		Thread.sleep(1000);
 		
-		saveShow()
 		to ShowSelection
 		selectShowById("show2")
 		waitFor { at ShowItemList }
@@ -116,7 +113,7 @@ class ShowItemsTests extends TestBase {
 		titleOfItem(2) == "Something else"
 	}
 	
-	def "Delete item and save show"() {
+	def "Delete item"() {
 		when:
 		// hack, because hovering does not work
 		itemDeleteBtn(1).jquery.click()
@@ -128,7 +125,6 @@ class ShowItemsTests extends TestBase {
 		waitFor { items.size() == 2 }
 		
 		when:
-		saveShow()
 		to ShowSelection
 		selectShowById("show2")
 		waitFor { at ShowItemList }

@@ -16,10 +16,6 @@ class ShowItemList extends Page {
 		imageOfItem { index -> itemImage(index).@src }
 		addSlideBtn { $("#addslidebtn") }
 		addVideoBtn { $("#addvideobtn") }
-		saveShowBtn { $("#saveshowbtn") }
 	}
-	
-	def saveShow() {
-		withAlert(wait: true) { saveShowBtn.click() }
-	}
+
 }
