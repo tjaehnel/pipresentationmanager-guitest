@@ -10,7 +10,7 @@ class ShowSelectionTests extends TestBase {
 		to ShowSelection
 		
 		then:
-		shows.size() == 5 // four shows + 'select show' text
+		shows.size() == 4 // three shows + 'select show' text
 	}
 	
 	def "Select Show"() {

@@ -9,7 +9,7 @@ class ShowSelection extends Page {
 		shows.size() > 0
 	}
 	static content = {
-		showlist { $("#agendaselect") }
+		showlist { $("#showselect") }
 		shows (wait: true) { showlist.find("option") }
 	}
 	
@@ -25,6 +25,6 @@ class ShowSelection extends Page {
 		// element and geb does not allow interacting with hidden elements.
 		// so we have to operate the multiselect item manually by knowing the internals
 		showlist.jquery.multiselect("open");
-		$("label", for: "ui-multiselect-agendaselect-option-" + index).click();
+		$("label", for: "ui-multiselect-showselect-option-" + index).click();
 	}
 }
