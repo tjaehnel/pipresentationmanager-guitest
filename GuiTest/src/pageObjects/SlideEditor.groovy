@@ -19,6 +19,7 @@ class SlideEditor extends Page {
 	}
 	
 	def saveSlide() {
-		withAlert(wait: true) { saveSlideBtn.click() }
+		saveSlideBtn.click();
+		waitFor { $(".jGrowl-message").size() > 0 }
 	}
 }

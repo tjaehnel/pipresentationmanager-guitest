@@ -1,5 +1,7 @@
 package testCases;
 
+import java.awt.ItemSelectable;
+
 import groovy.swing.factory.TitledBorderFactory;
 
 import org.openqa.selenium.Keys;
@@ -22,7 +24,11 @@ class SlideEditorTests extends TestBase {
 		at ShowItemList
 				
 		when:
+		waitFor {
+			items.size() > 1
+		}
 		item(1).click()
+		
 		then:
 		at SlideEditor
 	}
@@ -78,7 +84,9 @@ class SlideEditorTests extends TestBase {
 		
 		then:
 		at ShowItemList
-		imageOfItem(1).contains("IMG-0006.jpg")
+		waitFor {
+			imageOfItem(1).contains("IMG-0006.jpg")
+		}
 		
 		when:
 		to ShowSelection
@@ -103,6 +111,8 @@ class SlideEditorTests extends TestBase {
 		waitFor { at SlideEditor }
 		
 		then:
-		imageTextEditor == "This is a test description"
+		waitFor {
+			imageTextEditor == "This is a test description"
+		}
 	}
 }

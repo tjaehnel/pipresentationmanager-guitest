@@ -17,6 +17,7 @@ class MovieEditor extends Page {
 	}
 	
 	def saveMovie() {
-		withAlert(wait: true) { saveMovieBtn.click() }
+		saveMovieBtn.click();
+		waitFor { $(".jGrowl-message").size() > 0 }
 	}
 }
