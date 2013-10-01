@@ -54,6 +54,7 @@ class ShowItemsTests extends TestBase {
 		
 		then:
 		titleOfItem(3) == "New Slide"
+		imageOfItem(3).contains("img.php?filename=&purpose=2")
 	}
 	
 	def "Add new video"() {

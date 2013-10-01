@@ -2,6 +2,8 @@ package testCases;
 
 import java.awt.ItemSelectable;
 
+import javax.swing.text.DefaultEditorKit.PreviousWordAction;
+
 import groovy.swing.factory.TitledBorderFactory;
 
 import org.openqa.selenium.Keys;
@@ -77,6 +79,7 @@ class SlideEditorTests extends TestBase {
 		at SlideEditor
 		waitFor {
 			previewImageUrl.contains("IMG-0006.jpg")
+			$(".blockUI").size() < 1
 		}
 		
 		when:
