@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	ShowSelectionTests.class,
 	ShowItemsTests.class,
 	SlideEditorTests.class,
+	SlideTextTests.class,
 	MovieEditorTests.class
 })
 public class AllTests {

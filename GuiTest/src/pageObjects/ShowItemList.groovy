@@ -17,5 +17,10 @@ class ShowItemList extends Page {
 		addSlideBtn { $("#addslidebtn") }
 		addVideoBtn { $("#addvideobtn") }
 	}
-
+	def clickItemByIndex(index) {
+		waitFor {
+			itemImage(index).isDisplayed()
+		}
+		itemImage(index).click()
+	}
 }

@@ -29,7 +29,7 @@ class SlideEditorTests extends TestBase {
 		waitFor {
 			items.size() > 1
 		}
-		item(1).click()
+		clickItemByIndex(1)
 		
 		then:
 		at SlideEditor
@@ -99,23 +99,5 @@ class SlideEditorTests extends TestBase {
 		then:
 		imageOfItem(1).contains("IMG-0006.jpg")
 	}
-	
-	def "Change Text"() {
-		when:
-		at SlideEditor
-		imageTextEditor << "This is a test description"
-		saveSlide()
-		
-		to ShowSelection
-		selectShowById("show2")
-		waitFor { at ShowItemList }
-		
-		item(1).click()
-		waitFor { at SlideEditor }
-		
-		then:
-		waitFor {
-			imageTextEditor == "This is a test description"
-		}
-	}
+
 }
