@@ -27,7 +27,46 @@ class MovieEditorTests extends TestBase {
 		then:
 		at MovieEditor
 	}
-
+	
+	def "Change title by focus"() {
+		when:
+		at MovieEditor
+		titleText.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		headline.click() // unfocus
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
+	def "Change title by icons"() {
+		when:
+		at MovieEditor
+		titleEditActivate.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		titleEditDeactivate.click()
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
+	def "Change title edit leave by ENTER"() {
+		when:
+		at MovieEditor
+		titleEditActivate.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		titleEditor << Keys.ENTER
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
 	def "Change Title"() {
 		when:
 		at MovieEditor

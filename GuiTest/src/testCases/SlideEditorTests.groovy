@@ -34,8 +34,47 @@ class SlideEditorTests extends TestBase {
 		then:
 		at SlideEditor
 	}
-
-	def "Change Title"() {
+	
+	def "Change title by focus"() {
+		when:
+		at SlideEditor
+		titleText.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		previewImage.click()
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
+	def "Change title by icons"() {
+		when:
+		at SlideEditor
+		titleEditActivate.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		titleEditDeactivate.click()
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
+	def "Change title edit leave by ENTER"() {
+		when:
+		at SlideEditor
+		titleEditActivate.click()
+		titleEditor.focus()
+		titleEditor << Keys.chord(Keys.CONTROL, "a")
+		titleEditor << "New Test Title"
+		titleEditor << Keys.ENTER
+		
+		then:
+		titleText.text() == "New Test Title"
+	}
+	
+	def "Change title"() {
 		when:
 		at SlideEditor
 		titleText.click()
@@ -62,6 +101,7 @@ class SlideEditorTests extends TestBase {
 		then:
 		titleOfItem(1) == "New Test Title"
 	}
+
 	
 	def "Change Background"() {
 		when:

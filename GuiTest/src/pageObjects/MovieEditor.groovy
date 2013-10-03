@@ -9,7 +9,9 @@ class MovieEditor extends Page {
 	}
 	static content = {
 		headline { $("#movieEditor h2") }
-		titleText { $("#movieEditor h2 .title") }
+		titleText { $("#movieEditor h2 .titletext") }
+		titleEditActivate { $("#movieEditor h2 .titleEditActivate") }
+		titleEditDeactivate { $("#movieEditor h2 .titleEditDeactivate") }
 		titleEditor { $("#movieEditor h2 input") }
 		filename { $("#videoFilename").text() }
 		selectMovieLink { $("#selectVideoLink") }
