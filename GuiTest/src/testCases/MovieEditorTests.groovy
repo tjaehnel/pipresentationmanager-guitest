@@ -24,8 +24,7 @@ class MovieEditorTests extends TestBase {
 		when:
 		item(2).click()
 		
-		then:
-		at MovieEditor
+		at MovieEditor		
 	}
 	
 	def "Change title by focus"() {

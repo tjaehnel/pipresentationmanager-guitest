@@ -36,7 +36,7 @@ class ShowItemsTests extends TestBase {
 		item(0).click()
 		
 		then:
-		at SlideEditor
+		waitFor { at SlideEditor }
 	}
 	
 	def "Add new slide"() {
